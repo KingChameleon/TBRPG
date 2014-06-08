@@ -1,12 +1,11 @@
 #!/usr/bin/env python
-import random
 import roll
 
 def combat():
-    x = roll.dtwenty()
+    x = roll.dice(1, 20, 0)
     if x > 10:
-        return 2
+        return True
     else:
-        return 0
+        return False
     
 

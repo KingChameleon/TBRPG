@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 import random
 
-# returns a random number between 1 and 20
-def dtwenty():
-    d_20 = random.randint(1, 20)
-    return d_20
+# is a random number generator for your specific dice roll
+def dice(number_of_dice, number_of_sides, modifier):
+    dice_roll = random.randint(number_of_dice, number_of_sides)
+    dice_roll = dice_roll + modifier
+    return dice_roll
 
 # returns a random number between 1 and 100
 def dpercent():
@@ -19,11 +20,3 @@ def dpercent():
     else:
         return (d_tens_place + d_ones_place)
 
-# returns a random number between 4 and 15
-def three_dfour():
-    one_dfour = random.randint(0, 4)
-    two_dfour = random.randint(0, 4)
-    three_dfour = random.randint(0, 4)
-    total_dfour = (one_dfour + two_dfour + three_dfour + 3)
-    return total_dfour
-    

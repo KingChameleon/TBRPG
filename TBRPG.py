@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 import time
 import TBRPG_Maps
-import roll
+from player import *
+from enemy import *
+from roll import *
+from combat import combat
 
 
 
@@ -11,6 +14,6 @@ def beginning():
     TBRPG_Maps.demon()
 
  
-beginning()
+#beginning()
 
-    
+steven = Hero(1, 0, 2, 5)
