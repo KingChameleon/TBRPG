@@ -3,7 +3,7 @@ import random
 
 # is a random number generator for your specific dice roll
 def dice(number_of_dice, number_of_sides, modifier):
-    dice_roll = random.randint(number_of_dice, number_of_sides)
+    dice_roll = random.randint(number_of_dice, (number_of_dice * number_of_sides))
     dice_roll = dice_roll + modifier
     return dice_roll
 

@@ -3,8 +3,6 @@
 # player tables in the form of dictionaries
 
 
-
-
 player_strength_dict = {'strength': 1, 'damage_modifier': 1, 'carry_weight_modifier': 1}
 player_dex_dict = {'dexterity': 1, 'evade_modifier': 1, 'ranged_modifier': 1}
 player_constitution_dict = {'resist_modifier': 1, 'health_modifier': 1, 'stamina_modifier': 1}

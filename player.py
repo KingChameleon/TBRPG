@@ -3,10 +3,7 @@
 
 class Hero:
         
-    def __init__(self, level, exp, armor, weapon):
+    def __init__(self, level, exp):
         self.lvl = level
         self.xp = exp
-        self.armor = armor
-        self.weapon = weapon
-
 

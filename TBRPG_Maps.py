@@ -40,18 +40,18 @@ def demon():
     with open("demon.txt") as f:
         print(f.read())
         
-def stats(t_hit_points, s_hit_points):
+def stats(player, creature):
     print(r"+----------------------------------------------------+")
     print(r"  Hero    | Hit Points  |  Experience  |   Damage  ")
     print(r"+----------------------------------------------------+")
-    if len(str(s_hit_points)) == 2:
-        print(r"  Steven  |     " + str(s_hit_points) + "      |      0       |      2    ")
+    if len(str(player)) == 2:
+        print(r"  Steven  |     " + str(player) + "      |      0       |      2    ")
     else:
-        print(r"  Steven  |      " + str(s_hit_points) + "      |      0       |      2    ")
-    if len(str(t_hit_points)) == 2:
-        print(r"  Demon   |     " + str(t_hit_points) + "      |      0       |      2       ")
+        print(r"  Steven  |      " + str(player) + "      |      0       |      2    ")
+    if len(str(creature)) == 2:
+        print(r"  Demon   |     " + str(creature) + "      |      0       |      2       ")
     else:
-        print(r"  Demon   |      " + str(t_hit_points) + "      |      0       |      2       ")
+        print(r"  Demon   |      " + str(creature) + "      |      0       |      2       ")
     print(r"+----------------------------------------------------+")
         
 def steven():
