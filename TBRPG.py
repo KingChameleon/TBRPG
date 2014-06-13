@@ -8,8 +8,8 @@ from combat import *
 from tables import *
 
 def beginning():
-    #TBRPG_Maps.slow_clear_screen()
-    #TBRPG_Maps.welcome()
+    TBRPG_Maps.slow_clear_screen()
+    TBRPG_Maps.welcome()
     TBRPG_Maps.demon()
 
  
@@ -18,11 +18,14 @@ def beginning():
 steven = Hero(1, 0)
 
 def start_you_roam():
-    looking_for_a_fight = roaming()
-    if looking_for_a_fight == True:
-        outcome = combat()
-        if outcome == False:
-            print("You lost.")
+    x = 0
+    lose = 0
+    win = 0
+    while x < 100:
+        x += 1
+        if roaming():
+            win += 1
         else:
-            print("You won!")
+            lose += 1
+    print("you won " + str(win)  + " times. And lost " + str(lose) + " times.")
 start_you_roam()
