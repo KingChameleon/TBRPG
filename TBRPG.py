@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 import time
-import TBRPG_Maps
+import random
+from TBRPG_Maps import *
 from player import *
 from enemy import *
-from roll import *
-from combat import *
+import roll
 from tables import *
 
 def beginning():
@@ -16,16 +16,61 @@ def beginning():
 #beginning()
 
 steven = Hero(1, 0)
+new_enemy = Enemy(random.randint((steven.lvl), (steven.lvl + 1)), 10)
 
-def start_you_roam():
-    x = 0
-    lose = 0
-    win = 0
-    while x < 100:
-        x += 1
-        if roaming():
-            win += 1
+
+def combat(new_enemy):
+    x = roll.dice(1, 20, 0)
+    if x > 10:
+        print(new_enemy.lvl)
+        print("You win " + str(new_enemy.xp) + " points!!!")
+        steven.xp = steven.xp + new_enemy.xp
+        level_up(steven.xp)
+        print(stats(steven.lvl, steven.xp))
+        roaming()
+    else:
+        print("You lost the battle... :(")
+        roaming()
+    
+def level_up(exp):
+    if exp < exp_table_list[1]:
+        steven.lvl = 1
+    elif exp >= exp_table_list[1] and exp < exp_table_list[2]:
+        steven.lvl = 2
+    elif exp >= exp_table_list[2] and exp < exp_table_list[3]:
+        steven.lvl = 3
+    elif exp >= exp_table_list[3] and exp < exp_table_list[4]:
+        steven.lvl = 4
+    else:
+        steven.lvl = 5
+
+
+def find_enemy():
+    encounter = roll.dice(4, 5, 0)
+    if encounter >= 17:
+        
+        return new_enemy
+        # return True
+    else:
+        return False
+
+def roaming():
+        walking = find_enemy()
+        if walking == False:
+            time.sleep(.5)
+            print("Walking....")
+
+            return roaming()
         else:
-            lose += 1
-    print("you won " + str(win)  + " times. And lost " + str(lose) + " times.")
-start_you_roam()
+            time.sleep(.5)
+            print("You've encountered an enemy!! Prepare to fight...")
+
+            return combat(new_enemy)
+roaming()
+
+answer = raw_input("try again? y/n")
+if answer == y:
+    roaming()
+else:
+    print("Bye")
+

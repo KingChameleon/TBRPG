@@ -22,3 +22,6 @@ def find_value(dict_to_find, key_to_find):
         if key == key_to_find:
             key_value = dict_to_find[key]
             return key_value
+        
+        
+exp_table_list = [0, 100, 300, 600, 1000]
