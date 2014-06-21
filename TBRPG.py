@@ -16,14 +16,21 @@ def beginning():
 #beginning()
 
 steven = Hero(1, 0)
-new_enemy = Enemy(random.randint((steven.lvl), (steven.lvl + 1)), 10)
+#new_enemy = Enemy(random.randint((steven.lvl), (steven.lvl + 1)), 10)
 
+def create_enemey(player_lvl):
+    if player_lvl == 1:
+        new_enemy = Enemy(random.randint((player_lvl), (player_lvl + 1)), 10)
+        return new_enemy
+    else:
+        new_enemy = Enemy(random.randint((player_lvl - 1), (player_lvl + 1)), 10)
+        return new_enemy
+    
 
-def combat(new_enemy):
+def combat():
     x = roll.dice(1, 20, 0)
     if x > 10:
-        print(new_enemy.lvl)
-        new_enemy = Enemy(random.randint((steven.lvl), (steven.lvl + 1)), 10)
+        create_enemey(steven.lvl)
         if new_enemy.lvl == 1:
             print("Enemy level is: " + str(new_enemy.lvl))
             print("You win " + str(new_enemy.xp) + " points!!!")
@@ -92,7 +99,7 @@ def find_enemy():
     encounter = roll.dice(4, 5, 0)
     if encounter >= 17:
         
-        return new_enemy
+        return True
         # return True
     else:
         return False
@@ -100,15 +107,15 @@ def find_enemy():
 def roaming():
         walking = find_enemy()
         if walking == False:
-            time.sleep(.5)
+            time.sleep(.3)
             print("Walking....")
 
             return roaming()
         else:
-            time.sleep(.5)
+            time.sleep(.3)
             print("You've encountered an enemy!! Prepare to fight...")
 
-            return combat(new_enemy)
+            return combat()
 roaming()
 
 answer = raw_input("try again? y/n")
