@@ -60,3 +60,17 @@ def steven():
     with open("steven.txt") as f:
         print(f.read())
 
+
+
+
+def level_one():
+    board = []
+    x = 0
+    while x < 10:
+        board.append(["x"] * 10)
+        x += 1
+    return board
+
+def print_board(x):
+    for i in x:
+        print(" ".join(i))

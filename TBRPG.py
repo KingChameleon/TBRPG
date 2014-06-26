@@ -18,6 +18,11 @@ def beginning():
 steven = Hero(1, 0)
 #new_enemy = Enemy(random.randint((steven.lvl), (steven.lvl + 1)), 10)
 
+new_level = level_one()
+new_level = print_board(new_level)
+print(new_level)
+
+
 def create_enemey(player_lvl):
     if player_lvl == 1:
         new_enemy = Enemy(random.randint((player_lvl), (player_lvl + 1)), 10)
@@ -30,7 +35,7 @@ def create_enemey(player_lvl):
 def combat():
     x = roll.dice(1, 20, 0)
     if x > 10:
-        create_enemey(steven.lvl)
+        new_enemy = create_enemey(steven.lvl)
         if new_enemy.lvl == 1:
             print("Enemy level is: " + str(new_enemy.lvl))
             print("You win " + str(new_enemy.xp) + " points!!!")
@@ -118,9 +123,11 @@ def roaming():
             return combat()
 roaming()
 
+'''
 answer = raw_input("try again? y/n")
 if answer == y:
     roaming()
 else:
     print("Bye")
+'''
 
